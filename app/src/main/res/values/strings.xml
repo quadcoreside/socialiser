@@ -1,12 +1,27 @@
 <resources>
-    <string name="app_name">socialiser</string>
+    <string name="app_name">Socialiser</string>
+
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
+    <string name="name">Nom</string>
+    <string name="username">Nom d\'utilisateur</string>
+    <string name="prompt_email">E-mail</string>
+    <string name="prompt_password">Mot de passe</string>
+    <string name="action_sign_in">Connexion ou Inscription</string>
+    <string name="action_sign_in_short">S\'identifier</string>
+    <string name="welcome">"Bienvenue !"</string>
     <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+    <string name="invalid_password">Le mot de passe doit contenir plus de 6 caractères</string>
+    <string name="login_failed">"Échec de la connexion"</string>
+
+    <string name="hello_blank_fragment">Bonjour fragment vierge</string>
+    <string name="don_t_have_an_account_register_now">Vous n\'avez pas de compte ? <b>S\'inscrire maintenant</b></string>
+    <string name="email">E-mail</string>
+    <string name="email_hint">moussalfa94@gmail.com</string>
+    <string name="password">Mot de passe</string>
+    <string name="password_confirmation">Mot de passe confirmation</string>
+    <string name="login">Connexion</string>
+    <string name="forgot_your_password">Mot de passe oublié?</string>
+    <string name="register_now">S\'inscrire maintenant</string>
+    <string name="already_have_an_account_login_now">Vous avez déjà un compte ? <b>Se connecter</b></string>
+    <string name="action_logout">Se déconnecter</string>
 </resources>
