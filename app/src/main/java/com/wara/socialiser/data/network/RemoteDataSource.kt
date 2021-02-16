@@ -18,6 +18,11 @@ class RemoteDataSource {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(
+                /*
+                OkHttpClient --> En effet, chaque client possède son propre pool de connexions et ses propres pools de threads.
+                 La réutilisation des connexions et des threads réduit la latence et économise de la mémoire.
+                 Inversement, la création d'un client pour chaque demande gaspille des ressources sur des pools inactifs.
+                * */
                 OkHttpClient.Builder()
                     .addInterceptor { chain ->
                         chain.proceed(chain.request().newBuilder().also {

@@ -48,7 +48,6 @@ class LoginFragment : BaseFragment<AuthViewModel, LoginFragmentBinding, AuthRepo
             binding.buttonLogin.enable(email.isNotEmpty() && it.toString().isNotEmpty())
         }
 
-
         binding.buttonLogin.setOnClickListener {
             login()
         }

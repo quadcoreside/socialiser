@@ -7,4 +7,6 @@ data class User(
     val email_verified_at: Any,
     val id: Int,
     val name: String,
+    val username: String,
+    val score: Int,
 )

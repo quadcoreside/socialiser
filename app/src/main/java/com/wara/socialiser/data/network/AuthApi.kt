@@ -13,4 +13,17 @@ interface AuthApi {
         @Field("email") email: String,
         @Field("password") password: String
     ) : LoginResponse
+
+    @FormUrlEncoded
+    @POST("auth/register")
+    suspend fun register(
+        @Field("username") username: String,
+        @Field("email") email: String,
+        @Field("password") password: String,
+
+        /*@Field("sexe") sexe: String,
+        @Field("date_birth") date_birth: String,
+        */
+
+        ) : LoginResponse
 }

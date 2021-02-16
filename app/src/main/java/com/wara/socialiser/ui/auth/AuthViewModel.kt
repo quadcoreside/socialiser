@@ -26,6 +26,15 @@ class AuthViewModel(
         _loginResponse.value = repository.login(email, password)
     }
 
+    fun register(
+        username: String,
+        email: String,
+        password: String
+    ) = viewModelScope.launch {
+        _loginResponse.value = Resource.Loading
+        _loginResponse.value = repository.register(username, email, password)
+    }
+
     suspend fun saveAuthToken(token: String) {
         repository.saveAuthToken(token)
     }
