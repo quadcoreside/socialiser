@@ -14,7 +14,7 @@ class UserPreferences(
 
     init {
         dataStore = applicationContext.createDataStore(
-            name = "my_data_store"
+            name = "socialiser_data_store"
         )
     }
 
