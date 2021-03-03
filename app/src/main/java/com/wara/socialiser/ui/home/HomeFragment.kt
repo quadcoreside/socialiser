@@ -5,6 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.wara.socialiser.R
 import com.wara.socialiser.data.network.Resource
 import com.wara.socialiser.data.network.UserApi
 import com.wara.socialiser.data.repository.UserRepository
@@ -17,6 +20,10 @@ import kotlinx.coroutines.runBlocking
 
 class HomeFragment : BaseFragment<HomeViewModel, HomeFragmentBinding, UserRepository>() {
 
+    private lateinit var recyclerView: RecyclerView
+
+    private val adapter = MediaAdapater(listOf())
+    private val layoutManager = LinearLayoutManager(context)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -25,6 +32,7 @@ class HomeFragment : BaseFragment<HomeViewModel, HomeFragmentBinding, UserReposi
 
         viewModel.getUser()
 
+        /*
         viewModel.user.observe(viewLifecycleOwner, Observer {
             when (it) {
                 is Resource.Success -> {
@@ -36,11 +44,30 @@ class HomeFragment : BaseFragment<HomeViewModel, HomeFragmentBinding, UserReposi
                 }
             }
         })
-
+        */
+/*
         binding.buttonLogout.setOnClickListener {
             logout()
         }
+
+        recyclerView = view.findViewById(R.id.media_recyclerview)
+        recyclerView.apply {
+            layoutManager = this@HomeFragment.layoutManager
+            adapter = this@HomeFragment.adapter
+        }
+
+        val mediaList: ArrayList<String> = arrayListOf<String>().apply {
+            add("Test 1")
+            add("Test 1")
+            add("Test 1")
+            add("Test 1")
+            add("Test 1")
+            add("Test 1")
+        }
+
+        adapter.updateList(mediaList)*/
     }
+
 
     private fun updateUI(user: User) {
         with(binding) {
