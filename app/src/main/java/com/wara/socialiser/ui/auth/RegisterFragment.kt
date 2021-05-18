@@ -22,13 +22,6 @@ import kotlinx.coroutines.launch
 import java.util.*
 
 class RegisterFragment : BaseFragment<AuthViewModel, RegisterFragmentBinding, AuthRepository>() {
-/*
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.register_fragment, container, false)
-    }*/
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -49,7 +42,9 @@ class RegisterFragment : BaseFragment<AuthViewModel, RegisterFragmentBinding, Au
                 binding.buttonRegister.enable(false)
             }
         }
-
+        binding.textViewLoginNow.setOnClickListener {
+            goToLogin()
+        }
         binding.buttonRegister.setOnClickListener {
             val username = binding.editTextUsername.text.toString().trim().toLowerCase(Locale.ROOT)
             val email = binding.editTextEmail.text.toString().trim().toLowerCase(Locale.ROOT)
@@ -79,6 +74,9 @@ class RegisterFragment : BaseFragment<AuthViewModel, RegisterFragmentBinding, Au
         val psw = binding.editTextPassword.text.toString().trim()
         val pswConfirm = binding.editTextTextPasswordConfirmation.text.toString().trim()
         viewModel.register(username, email, psw)
+    }
+    private fun goToLogin() {
+
     }
 
     override fun getViewModel() = AuthViewModel::class.java

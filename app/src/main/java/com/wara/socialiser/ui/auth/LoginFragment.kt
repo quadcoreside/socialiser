@@ -1,16 +1,14 @@
 package com.wara.socialiser.ui.auth
 
-import androidx.lifecycle.ViewModelProvider
+import android.R
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import com.wara.socialiser.MainActivity
-import com.wara.socialiser.R
 import com.wara.socialiser.data.network.AuthApi
 import com.wara.socialiser.data.network.Resource
 import com.wara.socialiser.data.repository.AuthRepository
@@ -21,6 +19,7 @@ import com.wara.socialiser.ui.handleApiError
 import com.wara.socialiser.ui.startNewActivity
 import com.wara.socialiser.ui.visible
 import kotlinx.coroutines.launch
+
 
 class LoginFragment : BaseFragment<AuthViewModel, LoginFragmentBinding, AuthRepository>() {
 
@@ -51,12 +50,24 @@ class LoginFragment : BaseFragment<AuthViewModel, LoginFragmentBinding, AuthRepo
         binding.buttonLogin.setOnClickListener {
             login()
         }
+        binding.textViewRegisterNow.setOnClickListener {
+            goToRegister();
+        }
+        binding.textViewForgotPassword.setOnClickListener {
+            goToForgot();
+        }
     }
 
     private fun login() {
         val email = binding.editTextTextEmailAddress.text.toString().trim()
         val password = binding.editTextTextPassword.text.toString().trim()
         viewModel.login(email, password)
+    }
+    private fun goToRegister() {
+
+    }
+    private fun goToForgot() {
+
     }
 
     override fun getViewModel() = AuthViewModel::class.java

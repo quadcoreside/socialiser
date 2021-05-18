@@ -30,9 +30,9 @@ class HomeFragment : BaseFragment<HomeViewModel, HomeFragmentBinding, UserReposi
 
         binding.progressbar.visible(false)
 
+
         viewModel.getUser()
 
-        /*
         viewModel.user.observe(viewLifecycleOwner, Observer {
             when (it) {
                 is Resource.Success -> {
@@ -44,8 +44,6 @@ class HomeFragment : BaseFragment<HomeViewModel, HomeFragmentBinding, UserReposi
                 }
             }
         })
-        */
-/*
         binding.buttonLogout.setOnClickListener {
             logout()
         }
@@ -55,26 +53,25 @@ class HomeFragment : BaseFragment<HomeViewModel, HomeFragmentBinding, UserReposi
             layoutManager = this@HomeFragment.layoutManager
             adapter = this@HomeFragment.adapter
         }
-
         val mediaList: ArrayList<String> = arrayListOf<String>().apply {
+            add("Test 0")
             add("Test 1")
             add("Test 1")
             add("Test 1")
             add("Test 1")
-            add("Test 1")
-            add("Test 1")
+            add("Test X")
         }
 
-        adapter.updateList(mediaList)*/
+        adapter.updateList(mediaList)
     }
 
 
     private fun updateUI(user: User) {
-        with(binding) {
+        /*with(binding) {
             textViewId.text = user.id.toString()
             textViewName.text = user.name
             textViewEmail.text = user.email
-        }
+        }*/
     }
 
     override fun getViewModel() = HomeViewModel::class.java
