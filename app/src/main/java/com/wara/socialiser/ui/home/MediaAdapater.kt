@@ -13,7 +13,7 @@ class MediaAdapater(private var dataSet: List<String>) : RecyclerView.Adapter<Me
         val textView: TextView
 
         init {
-            textView = view.findViewById(R.id.username)
+            textView = view.findViewById(R.id.title)
         }
     }
     fun updateList(list: List<String>){

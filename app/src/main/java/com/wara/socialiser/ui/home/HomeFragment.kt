@@ -44,9 +44,9 @@ class HomeFragment : BaseFragment<HomeViewModel, HomeFragmentBinding, UserReposi
                 }
             }
         })
-        binding.buttonLogout.setOnClickListener {
+        /*binding.buttonLogout.setOnClickListener {
             logout()
-        }
+        }*/
 
         recyclerView = view.findViewById(R.id.media_recyclerview)
         recyclerView.apply {

@@ -26,4 +26,5 @@ interface AuthApi {
         */
 
         ) : LoginResponse
+
 }

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="64dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.home.HomeFragment">
 
@@ -62,7 +63,7 @@
     </TableLayout>
     -->
 
-    <Button
+    <!--<Button
         android:id="@+id/button_logout"
         style="@style/ButtonPrimary"
         android:layout_width="wrap_content"
@@ -70,7 +71,7 @@
 
         android:layout_centerHorizontal="true"
         android:layout_marginTop="12dp"
-        android:text="@string/action_logout" />
+        android:text="@string/action_logout" />-->
 
     <ProgressBar
         android:layout_centerInParent="true"
