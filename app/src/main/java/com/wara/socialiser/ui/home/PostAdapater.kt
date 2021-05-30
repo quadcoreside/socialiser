@@ -81,12 +81,6 @@ class PostAdapater(private var dataSet: List<Post>) : RecyclerView.Adapter<PostA
             itemClick = { post ->
                 //this.itemClick?.invoke(post)
 
-                /*
-                val message = "id = " + post.id
-                val intent = Intent(viewGroup.context, PostViewActivity::class.java).apply {
-                    putExtra(EXTRA_MESSAGE, message)
-                }*/
-
                 Log.d("TAG", "id = " + post.id)
 
                 val intent = Intent(viewGroup.context, PostViewActivity::class.java)

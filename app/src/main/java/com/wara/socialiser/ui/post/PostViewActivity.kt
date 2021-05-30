@@ -13,7 +13,7 @@ class PostViewActivity : AppCompatActivity() {
         setContentView(R.layout.post_view_activity)
 
         // Get the Intent that started this activity and extract the string
-        val message = intent.getStringExtra("post_id").toString()
+        val message = intent.getIntExtra("post_id")
         Log.d("TEST PARAM", "msg =" +  message)
     }
 
