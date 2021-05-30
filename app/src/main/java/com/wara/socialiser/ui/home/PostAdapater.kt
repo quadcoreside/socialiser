@@ -15,7 +15,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.wara.socialiser.R
 import com.wara.socialiser.data.response.Post
-import com.wara.socialiser.ui.post.PostViewActivity
 
 
 class PostAdapater(private var dataSet: List<Post>) : RecyclerView.Adapter<PostAdapater.PostListViewHolder>() {
@@ -83,9 +82,12 @@ class PostAdapater(private var dataSet: List<Post>) : RecyclerView.Adapter<PostA
 
                 Log.d("TAG", "id = " + post.id)
 
-                val intent = Intent(viewGroup.context, PostViewActivity::class.java)
-                intent.putExtra("post_id", post.id)
-                viewGroup.context.startActivity(intent)
+                //val intent = Intent(viewGroup.context, PostViewActivity::class.java)
+
+                transaction.replace(R.id.fr, fragment)
+
+                /*intent.putExtra("post_id", post.id)
+                viewGroup.context.startActivity(intent)*/
             }
             onItemLongPress = { post ->
                 //this.onItemLongPress?.invoke(post)
@@ -94,8 +96,8 @@ class PostAdapater(private var dataSet: List<Post>) : RecyclerView.Adapter<PostA
     }
 
     override fun onBindViewHolder(viewHolder: PostListViewHolder, position: Int) {
-        val movieViewHolder = viewHolder as PostListViewHolder
-        movieViewHolder.bindView(dataSet[position])
+        val postViewHolder = viewHolder as PostListViewHolder
+        postViewHolder.bindView(dataSet[position])
     }
 
     private val limit = 20
