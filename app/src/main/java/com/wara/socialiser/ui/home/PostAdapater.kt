@@ -84,7 +84,7 @@ class PostAdapater(private var dataSet: List<Post>) : RecyclerView.Adapter<PostA
 
                 //val intent = Intent(viewGroup.context, PostViewActivity::class.java)
 
-                transaction.replace(R.id.fr, fragment)
+                //transaction.replace(R.id.fragmentPost, fragment)
 
                 /*intent.putExtra("post_id", post.id)
                 viewGroup.context.startActivity(intent)*/
