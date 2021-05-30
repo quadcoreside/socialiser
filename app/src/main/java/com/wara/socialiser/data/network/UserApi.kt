@@ -1,10 +1,16 @@
 package com.wara.socialiser.data.network
 
-import com.wara.socialiser.data.response.AlbumResponse
+import androidx.lifecycle.MutableLiveData
+import com.wara.socialiser.data.response.Album
 import com.wara.socialiser.data.response.LoginResponse
+import com.wara.socialiser.data.response.Post
+import com.wara.socialiser.data.response.PostComment
 import okhttp3.ResponseBody
+import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
+
 
 interface UserApi {
 
@@ -15,6 +21,17 @@ interface UserApi {
     suspend fun logout(): ResponseBody
 
     @GET("albums")
-    suspend fun getAlbums() : AlbumResponse
-    fun getAlbum()
+    suspend fun getAlbums() : MutableList<Album>
+
+    @GET("posts")
+    suspend fun getPosts() : MutableList<Post>
+
+    @GET("posts/{id}")
+    suspend fun getPost() : MutableLiveData<Post>
+
+    GET("posts/{id}/comments")
+    suspend fun getPostComments(@Path("id")) : MutableList<PostComment>
+
+    /*GET("users/{id}")
+    suspend fun getUser() : MutableLiveData<User>*/
 }

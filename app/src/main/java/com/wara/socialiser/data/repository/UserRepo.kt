@@ -10,8 +10,20 @@ class UserRepository(
         api.getUser()
     }
 
-    suspend fun getAlbum() = safeApiCall {
-        api.getAlbum()
+    suspend fun getPosts() = safeApiCall {
+        api.getPosts()
+    }
+
+    suspend fun getPost() = safeApiCall {
+        api.getPost()
+    }
+
+    suspend fun getPostComments() = safeApiCall {
+        api.getPostComments()
+    }
+
+    suspend fun getAlbums() = safeApiCall {
+        api.getAlbums()
     }
 
 }

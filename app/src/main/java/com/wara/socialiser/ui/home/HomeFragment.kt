@@ -8,13 +8,10 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.wara.socialiser.R
-import com.wara.socialiser.data.network.PlaceholderAPI
 import com.wara.socialiser.data.network.Resource
 import com.wara.socialiser.data.network.UserApi
-import com.wara.socialiser.data.repository.JsonPlaceHolderRepo
 import com.wara.socialiser.data.repository.UserRepository
 import com.wara.socialiser.data.response.Album
-import com.wara.socialiser.data.response.User
 import com.wara.socialiser.databinding.HomeFragmentBinding
 import com.wara.socialiser.ui.base.BaseFragment
 import com.wara.socialiser.ui.visible
@@ -25,7 +22,7 @@ class HomeFragment : BaseFragment<HomeViewModel, HomeFragmentBinding, UserReposi
 
     private lateinit var recyclerView: RecyclerView
 
-    private val adapter = MediaAdapater(listOf())
+    private val adapter = PostAdapater(listOf())
     private val layoutManager = LinearLayoutManager(context)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,13 +30,27 @@ class HomeFragment : BaseFragment<HomeViewModel, HomeFragmentBinding, UserReposi
 
         binding.progressbar.visible(false)
 
+        recyclerView = view.findViewById(R.id.media_recyclerview)
+        recyclerView.apply {
+            layoutManager = this@HomeFragment.layoutManager
+            adapter = this@HomeFragment.adapter
+        }
+        /* static element */
+        /*var albumList: ArrayList<Album> = arrayListOf<Album>()
+        for (i in 1..6) {
+            albumList.add(Album(1,1,"Test Title", "https://via.placeholder.com/600/771796", "https://via.placeholder.com/150/771796"))
+        }
+        adapter.updateList(albumList)*/
 
+        /* http req */
         viewModel.getAlbums()
-
+        /* Asyc tache non bloquant */
         viewModel.albums.observe(viewLifecycleOwner, Observer {
             when (it) {
                 is Resource.Success -> {
                     binding.progressbar.visible(false)
+                    adapter.updateList(it.value)
+
                     //updateUI(it.value.albums)
                 }
                 is Resource.Loading -> {
@@ -50,30 +61,13 @@ class HomeFragment : BaseFragment<HomeViewModel, HomeFragmentBinding, UserReposi
         /*binding.buttonLogout.setOnClickListener {
             logout()
         }*/
-
-        recyclerView = view.findViewById(R.id.media_recyclerview)
-        recyclerView.apply {
-            layoutManager = this@HomeFragment.layoutManager
-            adapter = this@HomeFragment.adapter
-        }
-        val mediaList: ArrayList<String> = arrayListOf<String>().apply {
-            add("Test 0")
-            add("Test 1")
-            add("Test 1")
-            add("Test 1")
-            add("Test 1")
-            add("Test X")
-        }
-
-        adapter.updateList(mediaList)
     }
 
 
-    private fun updateUI(album: Album) {
+    private fun updateUI(albumList: ArrayList<Album>) {
         with(binding) {
 
-            val mediaList: ArrayList<String> = arrayListOf<String>().apply {
-                add("Test 0")
+            /*val mediaList: ArrayList<Album> = arrayListOf<Album>().apply {
                 add("Test 1")
                 add("Test 1")
                 add("Test 1")
@@ -81,7 +75,7 @@ class HomeFragment : BaseFragment<HomeViewModel, HomeFragmentBinding, UserReposi
                 add("Test X")
             }
 
-            adapter.updateList(mediaList)
+            adapter.updateList(mediaList)*/
 
             /*textViewId.text = user.id.toString()
             textViewName.text = user.name
@@ -97,9 +91,9 @@ class HomeFragment : BaseFragment<HomeViewModel, HomeFragmentBinding, UserReposi
     ) = HomeFragmentBinding.inflate(inflater, container, false)
 
     override fun getFragmentRepository(): UserRepository {
+        /* Credientials */
         val token = runBlocking { userPreferences.authToken.first() }
         val api = remoteDataSource.buildApi(UserApi::class.java, token)
-        //return UserRepository(api)
         return UserRepository(api)
     }
 }
