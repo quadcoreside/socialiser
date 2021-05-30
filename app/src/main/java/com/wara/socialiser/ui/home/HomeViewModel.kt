@@ -46,9 +46,9 @@ class HomeViewModel(
     val postComments: LiveData<Resource<MutableList<PostComment>>>
         get() = _postComments
 
-    fun getPostComments() = viewModelScope.launch {
+    fun getPostComments(post_id: Int) = viewModelScope.launch {
         _postComments.value = Resource.Loading
-        _postComments.value = repository.getPostComments()
+        _postComments.value = repository.getPostComments(post_id)
     }
 
     private val _albums: MutableLiveData<Resource<MutableList<Album>>> = MutableLiveData()
