@@ -18,8 +18,8 @@ class UserRepository(
         api.getPost()
     }
 
-    suspend fun getPostComments() = safeApiCall {
-        api.getPostComments()
+    suspend fun getPostComments(post_id: Int) = safeApiCall {
+        api.getPostComments(post_id)
     }
 
     suspend fun getAlbums() = safeApiCall {

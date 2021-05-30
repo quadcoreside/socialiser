@@ -11,9 +11,10 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.wara.socialiser.R
 import com.wara.socialiser.data.response.Album
+import com.wara.socialiser.data.response.Post
 
 
-class PostAdapater(private var dataSet: List<Album>) : RecyclerView.Adapter<PostAdapater.ViewHolder>() {
+class PostAdapater(private var dataSet: List<Post>) : RecyclerView.Adapter<PostAdapater.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val titleTextView: TextView
@@ -30,7 +31,7 @@ class PostAdapater(private var dataSet: List<Album>) : RecyclerView.Adapter<Post
             return image
         }
     }
-    fun updateList(list: List<Album>){
+    fun updateList(list: List<Post>){
         dataSet = list
         notifyDataSetChanged()
     }
@@ -47,10 +48,10 @@ class PostAdapater(private var dataSet: List<Album>) : RecyclerView.Adapter<Post
     }
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.titleTextView.text = dataSet[position].title;
-        viewHolder.descriptionTextView.text = dataSet[position].url;
+        viewHolder.descriptionTextView.text = dataSet[position].body;
 
         /* Chargement de l'image avec Glide */
-        /* dataSet[position].thumbnailUrl */
+        /* dataSet[position].thumbnailUrl on affiche la meme image pour tout les posts */
         Glide.with(context)
             .load("https://www.esiea.fr/wp-content/uploads/2016/04/Logo-ESIEA.jpg").centerCrop()
             .diskCacheStrategy(DiskCacheStrategy.ALL)

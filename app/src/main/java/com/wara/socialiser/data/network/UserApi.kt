@@ -29,8 +29,8 @@ interface UserApi {
     @GET("posts/{id}")
     suspend fun getPost() : MutableLiveData<Post>
 
-    GET("posts/{id}/comments")
-    suspend fun getPostComments(@Path("id")) : MutableList<PostComment>
+    @GET("posts/{id}/comments")
+    suspend fun getPostComments(@Path("id") id: Int) : MutableList<PostComment>
 
     /*GET("users/{id}")
     suspend fun getUser() : MutableLiveData<User>*/

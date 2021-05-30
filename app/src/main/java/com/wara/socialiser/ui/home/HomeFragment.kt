@@ -43,9 +43,9 @@ class HomeFragment : BaseFragment<HomeViewModel, HomeFragmentBinding, UserReposi
         adapter.updateList(albumList)*/
 
         /* http req */
-        viewModel.getAlbums()
+        viewModel.getPosts()
         /* Asyc tache non bloquant */
-        viewModel.albums.observe(viewLifecycleOwner, Observer {
+        viewModel.posts.observe(viewLifecycleOwner, Observer {
             when (it) {
                 is Resource.Success -> {
                     binding.progressbar.visible(false)

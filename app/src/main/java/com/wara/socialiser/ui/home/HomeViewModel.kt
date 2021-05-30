@@ -33,8 +33,8 @@ class HomeViewModel(
         _posts.value = repository.getPosts()
     }
 
-    private val _post: MutableLiveData<Resource<Post>> = MutableLiveData()
-    val post: LiveData<Resource<Post>>
+    private val _post: MutableLiveData<Resource<MutableLiveData<Post>>> = MutableLiveData()
+    val post: LiveData<Resource<MutableLiveData<Post>>>
         get() = _post
 
     fun getPost(id: Int) = viewModelScope.launch {
