@@ -36,8 +36,8 @@ class PostFragment : BaseFragment<HomeViewModel, FragmentPostBinding, UserReposi
             adapter = this@PostFragment.adapter
         }
 
-        val post_id = intent.getIntExtra("post_id");
-        viewModel.getPost(post_id)
+        /*val post_id = intent.getIntExtra("post_id");
+        viewModel.getPost(post_id)*/
 
         /* Asyc tache non bloquant */
         viewModel.postComments.observe(viewLifecycleOwner, Observer {

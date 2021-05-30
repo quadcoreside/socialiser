@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Socialiser">
         <activity android:name=".ui.post.PostViewActivity"></activity>
+
         <!-- Ne pas oublier MainActivity AuthActivity -->
         <activity
             android:name=".ui.home.HomeActivity"
