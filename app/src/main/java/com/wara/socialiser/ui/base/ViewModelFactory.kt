@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.wara.socialiser.data.repository.AuthRepository
 import com.wara.socialiser.data.repository.BaseRepository
+import com.wara.socialiser.data.repository.JsonPlaceHolderRepo
 import com.wara.socialiser.data.repository.UserRepository
 import com.wara.socialiser.ui.auth.AuthViewModel
 import com.wara.socialiser.ui.home.HomeViewModel

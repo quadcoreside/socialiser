@@ -10,8 +10,8 @@ import retrofit2.http.POST
 interface PlaceholderAPI {
 
     @GET("https://jsonplaceholder.typicode.com/albums")
-    suspend fun getAlbums(
-    ) : AlbumResponse
+    suspend fun getAlbums() : AlbumResponse
+    fun getAlbum()
 
 
 }

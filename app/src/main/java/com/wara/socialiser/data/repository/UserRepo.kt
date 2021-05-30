@@ -10,4 +10,8 @@ class UserRepository(
         api.getUser()
     }
 
+    suspend fun getAlbum() = safeApiCall {
+        api.getAlbum()
+    }
+
 }

@@ -25,6 +25,6 @@ interface AuthApi {
         @Field("date_birth") date_birth: String,
         */
 
-        ) : LoginResponse
+    ) : LoginResponse
 
 }
