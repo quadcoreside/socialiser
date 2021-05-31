@@ -35,15 +35,10 @@ class HomeFragment : BaseFragment<HomeViewModel, HomeFragmentBinding, UserReposi
             layoutManager = this@HomeFragment.layoutManager
             adapter = this@HomeFragment.adapter
         }
-        /* static element */
-        /*var albumList: ArrayList<Album> = arrayListOf<Album>()
-        for (i in 1..6) {
-            albumList.add(Album(1,1,"Test Title", "https://via.placeholder.com/600/771796", "https://via.placeholder.com/150/771796"))
-        }
-        adapter.updateList(albumList)*/
 
         /* http req */
         viewModel.getPosts()
+
         /* Asyc tache non bloquant */
         viewModel.posts.observe(viewLifecycleOwner, Observer {
             when (it) {

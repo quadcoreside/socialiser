@@ -1,19 +1,17 @@
 package com.wara.socialiser.ui.home
 
+import android.R
 import android.content.Context
-import android.content.Intent
-import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.wara.socialiser.R
 import com.wara.socialiser.data.response.Post
 
 
@@ -85,6 +83,9 @@ class PostAdapater(private var dataSet: List<Post>) : RecyclerView.Adapter<PostA
                 //val intent = Intent(viewGroup.context, PostViewActivity::class.java)
 
                 //transaction.replace(R.id.fragmentPost, fragment)
+                (viewGroup.context as FragmentActivity).supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, PostFragment)
+                    .commit()
 
                 /*intent.putExtra("post_id", post.id)
                 viewGroup.context.startActivity(intent)*/

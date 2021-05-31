@@ -4,12 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.wara.socialiser.data.network.Resource
-import com.wara.socialiser.data.repository.JsonPlaceHolderRepo
 import com.wara.socialiser.data.repository.UserRepository
 import com.wara.socialiser.data.response.*
 import com.wara.socialiser.ui.base.BaseViewModel
 import kotlinx.coroutines.launch
-import okhttp3.ResponseBody
 
 class HomeViewModel(
     private val repository: UserRepository
